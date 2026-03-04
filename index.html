@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu Utama</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+
+    background:
+        linear-gradient(135deg,#667eea,#764ba2),
+        repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,0.05) 0px,
+            rgba(255,255,255,0.05) 20px,
+            transparent 20px,
+            transparent 40px
+        );
+    background-blend-mode: overlay;
+}
+
+/* CONTAINER UTAMA */
+.main-box{
+    text-align:center;
+    max-width:1100px;
+    width:100%;
+}
+
+/* JUDUL */
+.main-box h1{
+    color:white;
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.main-box p{
+    color:white;
+    opacity:0.9;
+    margin-bottom:50px;
+    font-size:16px;
+}
+
+/* WRAPPER CARD */
+.wrapper{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+/* CARD */
+.card{
+    position:relative;
+    width:300px;
+    height:420px;
+    border-radius:30px;
+    overflow:hidden;
+    cursor:pointer;
+    box-shadow:0 25px 60px rgba(0,0,0,0.3);
+    transition:all 0.5s cubic-bezier(.4,2,.6,1);
+}
+
+.card:hover{
+    transform:translateY(-20px) scale(1.05);
+    box-shadow:0 40px 80px rgba(0,0,0,0.4);
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:25px;
+    background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color:white;
+}
+
+.overlay h2{
+    font-size:22px;
+    margin-bottom:5px;
+}
+
+.overlay p{
+    font-size:14px;
+    opacity:0.9;
+}
+
+.menu-icon{
+    position:absolute;
+    top:15px;
+    right:18px;
+    font-size:22px;
+    color:white;
+    transition:0.3s;
+    z-index:2;
+}
+
+.card:hover .menu-icon{
+    transform:rotate(90deg);
+    color:#ffd369;
+}
+</style>
+</head>
+
+<body>
+
+<div class="main-box">
+    <h1>── ⋆⋅Tugas Form Biodata⋅⋆ ──</h1>
+    <p>Silakan pilih menu di bawah untuk mengisi biodata atau melihat dokumentasi.</p>
+
+    <div class="wrapper">
+
+        <div class="card" onclick="location.href='biodata.html'">
+            <div class="menu-icon">⋮</div>
+            <img src="images/biodata.jpeg" alt="biodata">
+            <div class="overlay">
+                <h2>Form Biodata</h2>
+                <p>Isi data diri kamu di sini.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="location.href='foto.html'">
+            <div class="menu-icon">⋮</div>
+            <img src="images/dokumentasi.jpeg" alt="Dokumentasi">
+            <div class="overlay">
+                <h2>Lampiran Foto</h2>
+                <p>Dokumentasi kegiatan yang telah dilakukan.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

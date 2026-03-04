@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Biodata Aesthetic</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+background:linear-gradient(135deg,#667eea,#764ba2);
+display:flex;
+justify-content:center;
+align-items:flex-start;
+padding:40px 0;
+}
+
+.container{
+width:400px;
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(15px);
+background:rgba(255,255,255,0.1);
+box-shadow:0 8px 32px rgba(0,0,0,0.3);
+color:white;
+animation:fadeIn 1s ease-in-out;
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+font-weight:600;
+}
+
+label{
+font-size:13px;
+}
+
+input, textarea{
+width:100%;
+padding:10px;
+margin:8px 0 15px 0;
+border:none;
+border-radius:10px;
+outline:none;
+font-size:14px;
+}
+
+input:focus, textarea:focus{
+box-shadow:0 0 10px rgba(255,255,255,0.7);
+}
+
+.radio-group{
+margin-bottom:15px;
+}
+
+button{
+width:100%;
+padding:10px;
+border:none;
+border-radius:10px;
+background:white;
+color:#764ba2;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#f1f1f1;
+transform:scale(1.05);
+}
+
+.hasil{
+margin-top:20px;
+padding:15px;
+border-radius:15px;
+background:rgba(255,255,255,0.2);
+display:none;
+animation:fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@media(max-width:450px){
+.container{width:90%;}
+}
+
+.back{
+    display:block;
+    margin-top:15px;
+    text-align:center;
+    text-decoration:none;
+    padding:8px;
+    background:#ffd369;
+    color:#333;
+    border-radius:10px;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>݁ ˖Ი𐑼⋆Form Biodata݁ ˖Ი𐑼⋆</h2>
+
+<form id="biodataForm">
+
+<label>Nama Lengkap</label>
+<input type="text" id="nama" required>
+
+<label>Kelas</label>
+<input type="text" id="kelas" required>
+
+<label>Tempat Lahir</label>
+<input type="text" id="tempat" required>
+
+<label>Tanggal Lahir</label>
+<input type="date" id="tanggal" required>
+
+<label>Jenis Kelamin</label>
+<div class="radio-group">
+<input type="radio" name="jk" value="Laki-laki" required> Laki-laki
+<input type="radio" name="jk" value="Perempuan"> Perempuan
+</div>
+
+<label>Alamat</label>
+<textarea id="alamat" rows="3" required></textarea>
+
+<label>Hobi</label>
+<input type="text" id="hobi" required>
+
+<button type="submit">Simpan Biodata</button>
+
+</form>
+
+<div class="hasil" id="hasilBox">
+<h3>💎 Data Anda</h3>
+<p><strong>Nama:</strong> <span id="outNama"></span></p>
+<p><strong>Kelas:</strong> <span id="outKelas"></span></p>
+<p><strong>TTL:</strong> <span id="outTTL"></span></p>
+<p><strong>Jenis Kelamin:</strong> <span id="outJK"></span></p>
+<p><strong>Alamat:</strong> <span id="outAlamat"></span></p>
+<p><strong>Hobi:</strong> <span id="outHobi"></span></p>
+</div>
+
+    <a href="index.html" class="back">⬅ Go Back</a>
+</div>
+
+</div>
+
+<script>
+document.getElementById("biodataForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+let nama = document.getElementById("nama").value;
+let kelas = document.getElementById("kelas").value;
+let tempat = document.getElementById("tempat").value;
+let tanggal = document.getElementById("tanggal").value;
+let alamat = document.getElementById("alamat").value;
+let hobi = document.getElementById("hobi").value;
+let jk = document.querySelector('input[name="jk"]:checked').value;
+
+document.getElementById("outNama").textContent = nama;
+document.getElementById("outKelas").textContent = kelas;
+document.getElementById("outTTL").textContent = tempat + ", " + tanggal;
+document.getElementById("outJK").textContent = jk;
+document.getElementById("outAlamat").textContent = alamat;
+document.getElementById("outHobi").textContent = hobi;
+
+document.getElementById("hasilBox").style.display = "block";
+});
+</script>
+
+</body>
+</html>
